@@ -1,0 +1,39 @@
+{# templates/news/includes/paginator.html #}
+
+{% if news_page.has_other_pages %}
+<nav aria-label="Page navigation" class="my-5">
+  <ul class="pagination">
+    {% if news_page.has_previous %}
+      <li class="page-item"><a class="page-link" href="?page=1">Первая</a></li>
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
+          Предыдущая
+        </a>
+      </li>
+    {% endif %}
+    {% for i in news_page.paginator.page_range %}
+        {% if news_page.number == i %}
+          <li class="page-item active">
+            <span class="page-link">{{ i }}</span>
+          </li>
+        {% else %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+          </li>
+        {% endif %}
+    {% endfor %}
+    {% if news_page.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ news_page.next_page_number }}">
+          Следующая
+        </a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="?page={{ news_page.paginator.num_pages }}">
+          Последняя
+        </a>
+      </li>
+    {% endif %}    
+  </ul>
+</nav>
+{% endif %}

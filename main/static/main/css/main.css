@@ -1,0 +1,70 @@
+body {
+background: #EFEFF0;}
+
+aside {
+    float: left;
+    background: #E0E0E0;
+    width: 25%;
+    padding: 2.5%;
+    height: 100vh;
+    color: #121212;
+    border-right: 5px solid #ECEDED;
+}
+
+aside img {
+    width: 80px;
+    float: left;
+}
+
+aside .logo {
+    font-size: 40px;
+    margin-left: 10px;
+    font-weight: bold;
+    position: relative;
+    top: -5px;
+}
+
+aside h3 {
+    margin-top: 50px;
+    font-size: 40px;
+}
+
+
+aside ul li {
+    color: #000000;
+    font-size: 28px;
+    display: block;
+    margin-top: 20px;
+}
+
+aside ul li:hover, aside ul a:hover {
+    color: #eb5959;
+    text-decoration: none;
+    transform: scale(1.05);
+
+}
+
+main .features {
+    float: left;
+    color: #000000;
+    margin-top: 100px;
+    text-align: justify;
+    width: 75%;
+    }
+
+main .features h1 {
+    font-size: 50px;
+    text-align: center;
+    }
+
+form {
+    margin-left: 30%;
+    width: 500px;
+    margin-top: 50px;
+
+}
+
+main .batton-news  {
+    font-size: 50px;
+    text-align: right;
+    }

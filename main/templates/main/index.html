@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+
+{% block title%}Главная страница{% endblock %}
+
+
+{% block content %}
+    <dev class="features">
+
+        <h1>Ваши добавленые новости</h1>
+        <p>{% if news_page %}
+                {% for new in news_page  %}
+                    <h1>{{ new.title }}</h1>
+                    <p>{{ new.text }}</p>
+
+                    <dev class="batton-news">
+                        {{ new.data }}
+                        <a href="{% url 'news_detail' new.id %}"><button class="btn btn-warning">Подробности</button></a></p>
+                    </dev>
+                {% endfor %}
+        {% else %}
+            <p>У вас нету записей. Добавте новости</p>
+        {% endif %}
+
+        {% include 'news/includes/paginator.html' %}
+        </p>
+    </dev>
+
+
+
+{% endblock %}
