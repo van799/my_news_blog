@@ -147,4 +147,6 @@ dmypy.json
 
 # папки со статикой и медиа
 main/templates/static/media/
-
+media/
+media/news/
+media/main/
