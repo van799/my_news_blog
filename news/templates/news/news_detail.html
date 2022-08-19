@@ -1,11 +1,15 @@
 {% extends 'main/base.html' %}
 
 {% block title%} {{ news.title }} {% endblock %}
+{% load thumbnail %}
 
 {% block content %}
     <dev class="features">
         <h1>{{ news.title }}</h1>
         <p>{{ news.data }}</p>
+        {% thumbnail news.image "900x400" crop="center" upscale=True as im %}
+            <img class="card-img my-2" src="{{ im.url }}">
+        {% endthumbnail %}
         <p>{{ news.text }}</p>
         <a href="{% url 'news_delete' news.id %}"><button class="btn btn-success" type="submit">Удалить новость</button></a>
         <a href="{% url 'news_update' news.id %}"><button class="btn btn-success" type="submit">Редактировать</button></a>

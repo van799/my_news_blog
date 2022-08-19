@@ -23,6 +23,7 @@ class NewsDetailView(DetailView):
 
 class NewsUpdateView(UpdateView):
     model = News
+    
     template_name = 'news/create.html'
     form_class = NewsForm
 
@@ -40,6 +41,7 @@ def create(request):
         if form.is_valid():
             news = form.save(commit=False)
             news.author = request.user
+
             news.save()
             return redirect('my_news')
         else:

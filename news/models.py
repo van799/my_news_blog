@@ -13,6 +13,10 @@ class News(models.Model):
         'Дата публикации',
         auto_now_add=True
     )
+    image = models.ImageField(
+        'Картинка',
+        upload_to='news/',
+        blank=True)
 
     def __str__(self):
         return self.title

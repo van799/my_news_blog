@@ -2,7 +2,7 @@
 
 {% block title%}Главная страница{% endblock %}
 
-
+{% load thumbnail %}
 {% block content %}
     <dev class="features">
 
@@ -10,6 +10,11 @@
         <p>{% if news_page %}
                 {% for new in news_page  %}
                     <h1>{{ new.title }}</h1>
+
+                    {% thumbnail new.image "400x200" crop="center" upscale=True as im %}
+                        <img class="card-img my-2" src="{{ im.url }}">
+                    {% endthumbnail %}
+
                     <p>{{ new.text }}</p>
 
                     <dev class="batton-news">
