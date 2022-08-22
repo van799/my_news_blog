@@ -5,10 +5,8 @@ from news.models import News
 
 
 def index(request):
-    if request.user:
-        news = News.objects.filter(author=request.user)
-    else:
-        news = News.objects.order_by('-data')
+
+    news = News.objects.all()
 
     paginator = Paginator(news, 5)
     page_number = request.GET.get('page')

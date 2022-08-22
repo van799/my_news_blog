@@ -5,13 +5,19 @@
 
 {% block content %}
     <dev class="features">
-        <h1>{{ news.title }}</h1>
+        <h2>{{ news.title }}</h2>
+        <hr>
+         <p>{{ news.data }}</p>
+         <div class="pic-block">
+             {% thumbnail news.image "400x200" crop="center" upscale=True as im %}
+                <img class="card-img my-2" src="{{ im.url }}">
+             {% endthumbnail %}
+         </div>
         <p>{{ news.data }}</p>
-        {% thumbnail news.image "900x400" crop="center" upscale=True as im %}
-            <img class="card-img my-2" src="{{ im.url }}">
-        {% endthumbnail %}
+
         <p>{{ news.text }}</p>
         <a href="{% url 'news_delete' news.id %}"><button class="btn btn-success" type="submit">Удалить новость</button></a>
         <a href="{% url 'news_update' news.id %}"><button class="btn btn-success" type="submit">Редактировать</button></a>
+        <hr>
     </dev>
 {% endblock %}

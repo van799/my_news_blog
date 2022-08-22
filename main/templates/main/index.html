@@ -4,16 +4,20 @@
 
 {% load thumbnail %}
 {% block content %}
+
     <dev class="features">
 
         <h1>Ваши добавленые новости</h1>
+        <hr>
         <p>{% if news_page %}
                 {% for new in news_page  %}
-                    <h1>{{ new.title }}</h1>
+                    <h2>{{ new.title }}</h2>
 
+                    <div class="pic-block">
                     {% thumbnail new.image "400x200" crop="center" upscale=True as im %}
                         <img class="card-img my-2" src="{{ im.url }}">
                     {% endthumbnail %}
+                    </div>
 
                     <p>{{ new.text }}</p>
 
@@ -21,6 +25,7 @@
                         {{ new.data }}
                         <a href="{% url 'news_detail' new.id %}"><button class="btn btn-warning">Подробности</button></a></p>
                     </dev>
+                    <hr>
                 {% endfor %}
         {% else %}
             <p>У вас нету записей. Добавте новости</p>
